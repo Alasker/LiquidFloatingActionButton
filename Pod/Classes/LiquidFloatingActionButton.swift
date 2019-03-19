@@ -441,9 +441,22 @@ class CircleLiquidBaseView : ActionBarBaseView {
         }
     }
 
+    fileprivate func adaptForFiveOptionsIfNeeded(_ number: Int) -> Int {
+        let isFiveOptionsButton = (openingCells.count == 5)
+        var adaptedNumber = number
+        guard isFiveOptionsButton else {
+            return adaptedNumber
+        }
+        adaptedNumber -= 1
+        if adaptedNumber == -1 {
+            adaptedNumber = 4
+        }
+        return adaptedNumber
+    }
+
     func differencePointRadio(_ distance: CGFloat, number: Int) -> CGPoint {
         let diagonalDistance = sqrt((2 * pow(distance, 2))) / 2
-        switch number {
+        switch adaptForFiveOptionsIfNeeded(number) {
         case 0:
             return CGPoint(x: -diagonalDistance, y: -diagonalDistance)
         case 1:
