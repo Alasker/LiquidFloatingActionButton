@@ -93,12 +93,14 @@ class ViewController: UIViewController, LiquidFloatingActionButtonDataSource, Li
             let cell = CustomCell(icon: UIImage(named: iconName)!, name: iconName)
             return cell
         }
-        cells.append(cellFactory("ic_cloud"))
+        cells.append(customCellFactory("ic_cloud"))
         cells.append(customCellFactory("ic_system"))
-        cells.append(cellFactory("ic_place"))
+        cells.append(customCellFactory("ic_place"))
+        cells.append(customCellFactory("ic_place"))
+        cells.append(customCellFactory("ic_place"))
         
-        let floatingFrame = CGRect(x: self.view.frame.width - 56 - 16, y: self.view.frame.height - 56 - 16, width: 56, height: 56)
-        let bottomRightButton = createButton(floatingFrame, .up)
+        let floatingFrame = CGRect(x: self.view.frame.width - 156 - 16, y: self.view.frame.height - 156 - 16, width: 56, height: 56)
+        let bottomRightButton = createButton(floatingFrame, .radio)
         
         let image = UIImage(named: "ic_art")
         bottomRightButton.image = image
